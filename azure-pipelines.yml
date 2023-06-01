@@ -24,14 +24,10 @@ stages:
     - task: Docker@2
       displayName: Build an image
       inputs:
-        command: build
-        dockerfile: '- task: Docker@2
-  inputs:
-    repository: '$(imageRepo)'
-    command: 'buildAndPush'
-    Dockerfile: '$(Build.SourcesDirectory)/app/Dockerfile'
-    tags: |
-      $(tag)
-      latest'
+        containerRegistry: 'azureContainerRegistry'
+        repository: '$(imageRepo)'
+        command: 'buildAndPush'
+        Dockerfile: '$(Build.SourcesDirectory)/app/Dockerfile'
         tags: |
           $(tag)
+          latest
