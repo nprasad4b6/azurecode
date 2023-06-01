@@ -31,3 +31,14 @@ stages:
         tags: |
           $(tag)
           latest
+- stage: Deploy
+  displayName: Deploy to Dev
+  dependsOn: Build
+  jobs:
+  - job: Deploy
+    displayName: deploy to AKS
+    pool:
+      vmImage: ubuntu-latest
+    steps:
+      -  
+
