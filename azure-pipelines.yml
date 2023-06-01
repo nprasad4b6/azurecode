@@ -56,5 +56,8 @@ stages:
         connectionType: 'kubernetesServiceConnection'
         kubernetesServiceConnection: 'azureAKS'
         namespace: 'default'
-        manifests: 'replaceme'
+        manifests: 
+          $(Pipeline.Workspace)/manifests/deployment.yaml
+          $(Pipeline.Workspace)/manifests/service.yaml
+
 
