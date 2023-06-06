@@ -36,6 +36,7 @@ stages:
         targetPath: '$(Pipeline.Workspace)/s/kubernetes'
         artifact: 'manifests'
         publishLocation: 'pipeline'
+
 - stage: Deploy
   displayName: Deploy to Dev
   dependsOn: Build
@@ -51,7 +52,7 @@ stages:
       inputs:
         buildType: 'current'
         artifactName: 'manifests'
-        targetPath: '$(Pipeline.Workspace)/manifests'
+        targetPath: '$(Pipeline.Workspace)/manifests' 
     - task: KubernetesManifest@1
       inputs:
         action: 'createSecret'
